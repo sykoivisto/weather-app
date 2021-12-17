@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Simple Weather</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <!-- <p id="report"></p> -->
+    <div class="background"></div>
+
+    <div class="content">
+        <div class="banner">
+            <a data-bs-toggle="collapse" href="#collapseSettings" role="button" aria-expanded="false" aria-controls="collapseSettings">
+                <img src="images/settings.png">
+            </a>
+            <h1>Weather Forecast</h1>
+        </div>
+
+        <div class="collapse" id="collapseSettings">
+            <div id="settings">
+                <div id="settingsInputs">
+                    <label for="zip" class="form-label">Zip Code:</label>
+                    <input class="form-control zip" type="number" placeholder="Zip Code" name="zip" id="zip">   
+                    
+                    <div class="unitSelect">
+                        <input class="form-check-input" type="radio" name="units" id="unitsF" checked>
+                        <label class="form-check-label" for="unitsF">
+                            Fahrenheit
+                        </label>
+                        <input class="form-check-input" type="radio" name="units" id="unitsC">
+                        <label class="form-check-label" for="unitsC">
+                            Celcius
+                        </label>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="updateSettings()"  data-bs-toggle="collapse" data-bs-target="#collapseSettings">Update</button>
+            </div>
+        </div>
+
+        <main id="current-weather">
+            <section class="row" id="current-header">
+                <div class="col">
+                    <h1>Currently</h1>
+                </div>
+                <div class="col">
+                    <p id="current-date">n/a</p>
+                </div>
+            </section>
+            <section class="row" id="current-forecast">
+                <div class="col">
+                    <p id="current-temp">n/a<span id="units">&deg;C</span></p>
+                </div>
+                <div class="col">
+                    <img id="current-icon" src="">
+                </div>
+            </section>
+            <section id="current-location">
+                <img id="current-location-icon" src="images/pin.png">
+                <p id="current-location-text">n/a</p>
+            </section>
+        </main>
+
+        <div class="small-cards">
+            <h1 class="small-forecast-header">Today</h1>
+            <div class="scrolling-wrapper dragscroll" id="hour-weather">
+                <!-- small cards placed here by app.js -->
+            </div>
+
+            <h1 class="small-forecast-header">Tomorrow</h1>
+            <div id="tomorrow-weather">
+                <div class="row">
+                    <div class="col">
+                        <p id="tomorrow-date">n/a</p>
+                    </div>
+                </div>
+                <div class="row" id="tomorrow-forecast">
+                    <div class="col">
+                        <table>
+                            <tr>
+                                <td class="tomorrow-label">Day</td>
+                                <td class="tomorrow-temp" id="tomorrow-DT">n/a<span id="units">&deg;C</span></td>
+                            </tr>
+                            <tr>
+                                <td class="tomorrow-label">Night</td>
+                                <td class="tomorrow-temp" id="tomorrow-NT">n/a<span id="units">&deg;C</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col">
+                        <img id="tomorrow-icon" src="">
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="small-forecast-header">Next 7 Days</h1>
+            <div class="scrolling-wrapper dragscroll" id="7-day-weather">
+                <!-- small cards placed here by app.js -->
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <p>Made by Silas Koivisto</p>
+    </div>
+    <!-- scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src = app.js></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/asvd/dragscroll/master/dragscroll.js"></script>
+</body>
+</html>
