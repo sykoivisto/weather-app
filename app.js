@@ -17,13 +17,13 @@ function coord(num) {
 }
 
 async function getWeather() {
-    await fetch(`https://api.geoapify.com/v1/geocode/search?text=${zip}&lang=en&limit=1&type=postcode&filter=countrycode:us,ca&format=json&apiKey=18ab753013ec4a6a8595d1af54b256e7`)
+    await fetch(`https://api.geoapify.com/v1/geocode/search?text=${zip}&lang=en&limit=1&filter=countrycode:us,ca&format=json&apiKey=18ab753013ec4a6a8595d1af54b256e7`)
     .then(res => {
         if (res.ok) {
-            console.log('positionstack - fetch success');
+            console.log('geoapify - fetch success');
             return res.json();
         } else {
-            console.log('positionstack - fetch failure');
+            console.log('geoapify - fetch failure');
         }
     })
     .then(data => {
